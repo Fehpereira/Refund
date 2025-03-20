@@ -1,0 +1,32 @@
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-1{
+  gap: 1rem;
+}
+
+.gap-0\.5{
+  gap: .5rem;
+}
+
+.padding-2\.5{
+  padding: 2.5rem;
+}
+
+.container {
+  width: 80rem;
+  margin-inline: auto;
+}
