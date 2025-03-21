@@ -76,77 +76,49 @@ let removeExpense = document.getElementsByClassName("remove")
 
 let removeOrdinal = removeExpense[requestsLenght - 1]
 
-if(selectCategory.value === "Almoço"){
-
-  requestTitleOrdinal.prepend(imgIcon)
-  imgIcon.src = "assets/knife.svg"
-  clearInputs()
-
+function removeRequest(){
   removeOrdinal.addEventListener("click", (event)=>{
     event.preventDefault()
     requestRefundOrdinal.remove()
     requests.splice(requestsLenght , 1)
   })
+}
+
+function addIcon(image){
+  requestTitleOrdinal.prepend(imgIcon)
+  imgIcon.src = image
+  clearInputs()
+}
+
+if(selectCategory.value === "Almoço"){
+
+  addIcon("assets/knife.svg")
+  removeRequest()
 
 }else if(selectCategory.value === "Taxi"){
 
-  requestTitleOrdinal.prepend(imgIcon)
-  imgIcon.src = "assets/taxi.svg"
-  clearInputs()
-
-  removeOrdinal.addEventListener("click", (event)=>{
-    event.preventDefault()
-    requestRefundOrdinal.remove()
-    requests.splice(requestsLenght , 1)
-  })
+  addIcon("assets/taxi.svg")
+  removeRequest()
 
 }else if(selectCategory.value === "Hotel"){
 
-  requestTitleOrdinal.prepend(imgIcon)
-  imgIcon.src = "assets/bed.svg"
-  clearInputs()
-
-  removeOrdinal.addEventListener("click", (event)=>{
-    event.preventDefault()
-    requestRefundOrdinal.remove()
-    requests.splice(requestsLenght , 1)
-  })
+  addIcon("assets/bed.svg")
+  removeRequest()
 
 }else if(selectCategory.value === "Internet"){
 
-  requestTitleOrdinal.prepend(imgIcon)
-  imgIcon.src = "assets/internet.svg"
-  clearInputs()
-
-  removeOrdinal.addEventListener("click", (event)=>{
-    event.preventDefault()
-    requestRefundOrdinal.remove()
-    requests.splice(requestsLenght , 1)
-  })
+  addIcon("assets/internet.svg")
+  removeRequest()
 
 }else if(selectCategory.value === "Ebook"){
 
-  requestTitleOrdinal.prepend(imgIcon)
-  imgIcon.src = "assets/ebook.svg"
-  clearInputs()
-
-  removeOrdinal.addEventListener("click", (event)=>{
-    event.preventDefault()
-    requestRefundOrdinal.remove()
-    requests.splice(requestsLenght , 1)
-  })
+   addIcon("assets/ebook.svg")
+   removeRequest()
 
 }else if(selectCategory.value === "Lanche"){
 
-  requestTitleOrdinal.prepend(imgIcon)
-  imgIcon.src = "assets/knife.svg"
-  clearInputs()
-
-  removeOrdinal.addEventListener("click", (event)=>{
-    event.preventDefault()
-    requestRefundOrdinal.remove()
-    requests.splice(requestsLenght , 1)
-  })
+  addIcon("assets/knife.svg")
+  removeRequest()
 
 }
 
@@ -155,7 +127,6 @@ console.log(requests)
 enabled()
 })
 
-// Habilita o botão se todos os inputs possuirem algum valor
 function enabled(){
   if (inputExpense.value !== "" && inputAmount.value !== "" && inputAmount.value !== "R$ 0" && selectCategory.value !== "Select"){
     btnAddExpense.removeAttribute("disabled", true)
