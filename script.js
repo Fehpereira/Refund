@@ -3,6 +3,7 @@ const selectCategory = document.getElementById("category")
 const inputAmount = document.getElementById("amount")
 const btnAddExpense = document.querySelector("button")
 const res = document.querySelector(".res")
+
 let requests = []
 
 inputExpense.addEventListener("input", () =>{
@@ -42,14 +43,13 @@ btnAddExpense.addEventListener("click" , (event) =>{
   <div class="request-refund flex items-center">
 
      <div class="request-title flex items-center">
-        <img id="img-icon" src="" alt="">
         <h4>${inputExpense.value} <small>${selectCategory.value}</small> </h4>
     </div>
 
      <div class="request-amount flex items-center gap-0.5">
         <p><small>R$</small>${inputAmount.value.replace("R$", "")},00</p>
 
-        <a href="#">
+        <a class="remove" href="#">
           <img src="assets/x.svg" alt="">
         </a>
      </div>
@@ -58,31 +58,54 @@ btnAddExpense.addEventListener("click" , (event) =>{
 
 `
 
-let requestRefund = document.getElementsByClassName("request-refund")
-
-
 requests.push(inputExpense.value)
 
-let imgIcon = document.getElementById("img-icon")
+let requestsLenght = requests.length
+
+let requestTitle = document.getElementsByClassName("request-title")
+
+let requestTitleOrdinal = requestTitle[requestsLenght - 1]
+
+let imgIcon = document.createElement("img")
+
+let remove = document.getElementsByClassName("remove")
 
 if(selectCategory.value === "Almoço"){
+
+  requestTitleOrdinal.prepend(imgIcon)
   imgIcon.src = "assets/knife.svg"
   clearInputs()
+
 }else if(selectCategory.value === "Taxi"){
+
+  requestTitleOrdinal.prepend(imgIcon)
   imgIcon.src = "assets/taxi.svg"
   clearInputs()
+
 }else if(selectCategory.value === "Hotel"){
+
+  requestTitleOrdinal.prepend(imgIcon)
   imgIcon.src = "assets/bed.svg"
   clearInputs()
+
 }else if(selectCategory.value === "Internet"){
+
+  requestTitleOrdinal.prepend(imgIcon)
   imgIcon.src = "assets/internet.svg"
   clearInputs()
+
 }else if(selectCategory.value === "Ebook"){
+
+  requestTitleOrdinal.prepend(imgIcon)
   imgIcon.src = "assets/ebook.svg"
   clearInputs()
+
 }else if(selectCategory.value === "Lanche"){
+
+  requestTitleOrdinal.prepend(imgIcon)
   imgIcon.src = "assets/knife.svg"
   clearInputs()
+
 }
 
 enabled()
@@ -90,7 +113,7 @@ enabled()
 
 // Habilita o botão se todos os inputs possuirem algum valor
 function enabled(){
-  if (inputExpense.value !== "" && inputAmount.value !== "" && selectCategory.value !== "Select"){
+  if (inputExpense.value !== "" && inputAmount.value !== "" && inputAmount.value !== "R$ 0" && selectCategory.value !== "Select"){
     btnAddExpense.removeAttribute("disabled", true)
   }
   else {
@@ -103,3 +126,4 @@ function clearInputs (){
   inputAmount.value = ""
   selectCategory.value = "Select"
 }
+
