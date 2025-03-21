@@ -34,8 +34,9 @@ body {
 }
 
 .logo {
-  margin-top: 3rem;
+  margin-block: 3rem;
   margin-bottom: 2rem;
+  
 }
 
 .request{
