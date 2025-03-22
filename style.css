@@ -215,3 +215,7 @@ small {
   color: var(--gray-200);
   line-height: 1rem;
 }
+
+.remove-icon {
+  cursor: pointer;
+}
